@@ -9,9 +9,8 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=dracula" />
+  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=dracula&margin-w=10&margin-h=10&row=1" />
 </p>
-
 
 ---
 
