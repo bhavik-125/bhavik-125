@@ -58,8 +58,6 @@
 
 ### 📊 GitHub Summary
 
-![Profile Details]
-
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical" />
 </p>
