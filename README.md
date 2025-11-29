@@ -56,27 +56,20 @@
 
 ---
 
-### 📊 GitHub Stats
+### 📊 GitHub Summary
+
+![Profile Details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical)
 
 <p align="center">
-  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=bhavik-125&show_icons=true&theme=radical&cache_seconds=7200
-" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=bhavik-125&theme=radical" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bhavik-125&theme=radical" height="180"/>
 </p>
 
 <p align="center">
-  <img 
-       src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=bhavik-125&show_icons=true&theme=radical&cache_seconds=7200
-"
-       height="180"
-  />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bhavik-125&theme=radical" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bhavik-125&theme=radical" height="180"/>
 </p>
 
-<p align="center">
-  <img 
-       src="https://streak-stats.demolab.com?user=bhavik-125&theme=radical"
-       height="180"
-  />
-</p>
 
 
 
