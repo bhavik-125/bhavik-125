@@ -59,12 +59,14 @@
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=bhavik-125&show_icons=true&locale=en&layout=compact&theme=radical" height="180"/>
+  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=bhavik-125&show_icons=true&theme=radical&cache_seconds=7200
+" height="180"/>
 </p>
 
 <p align="center">
   <img 
-       src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=bhavik-125&show_icons=true&theme=radical"
+       src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=bhavik-125&show_icons=true&theme=radical&cache_seconds=7200
+"
        height="180"
   />
 </p>
