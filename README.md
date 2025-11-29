@@ -58,7 +58,7 @@
 
 ### 📊 GitHub Summary
 
-![Profile Details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical)
+![Profile Details]<p align="center">(https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical)
 
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=bhavik-125&theme=radical" height="180"/>
