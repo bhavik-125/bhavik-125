@@ -9,9 +9,8 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=dracula&no-frame=true&no-bg=true" />
+  <img src="https://raw.githubusercontent.com/ryo-ma/github-profile-trophy/master/docs/_media/logo.png" width="200"/>
 </p>
-
 ---
 
 ### 🔥 About Me
