@@ -9,7 +9,7 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=flat&row=1&no-bg=true&no-frame=true" />
+  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=onedark&row=1&margin-w=15" />
 </p>
 
 ---
