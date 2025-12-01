@@ -4,7 +4,7 @@
 <br/>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=dracula&margin-w=10&margin-h=10&row=1" />
+   <img src="https://komarev.com/ghpvc/?username=bhavik-125&label=Profile%20views&color=brightgreen&style=flat" alt="bhavik-125" />
 </p>
 
 <!-- TROPHIES -->
