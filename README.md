@@ -9,7 +9,7 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ryo-ma/github-profile-trophy/master/docs/_media/logo.png" width="200"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=dracula&margin-w=10&margin-h=10&row=1" />
 </p>
 ---
 
