@@ -1,0 +1,32 @@
+name: Refresh GitHub README Stats
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # Runs every 2 hours
+  workflow_dispatch:       # Allow manual run
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Force refresh cache by rewriting README timestamp
+        run: |
+          echo "Stats last updated at: $(date)" > stats-timestamp.txt
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add stats-timestamp.txt
+          git commit -m "Auto refresh GitHub stats" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push
