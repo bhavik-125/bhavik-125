@@ -59,8 +59,9 @@
 
 ### 🔥 Current GitHub Streak
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false&cachebuster=4" />
+  <img src="https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false&v=1" />
 </p>
+
 
 
 ---
