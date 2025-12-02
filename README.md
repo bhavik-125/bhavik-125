@@ -58,7 +58,9 @@
 
 
 ### 🔥 Current GitHub Streak
-![GitHub Streak](https://badges.strrl.dev/contributions/bhavik-125)
+<p align="center">
+  <img src="./assets/streak.png" alt="GitHub Streak" />
+</p>
 
 
 ---
