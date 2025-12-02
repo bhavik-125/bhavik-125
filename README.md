@@ -59,7 +59,7 @@
 
 ### 🔥 Current GitHub Streak
 <p align="center">
-  <img src="./assets/streak.png" alt="GitHub Streak" />
+  <img src="./assets/streak.svg" width="495px" alt="GitHub Streak Card" />
 </p>
 
 
