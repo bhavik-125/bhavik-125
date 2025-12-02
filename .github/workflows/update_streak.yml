@@ -1,29 +1,32 @@
 name: Update GitHub Streak Image
+
 on:
   schedule:
-    - cron: '0 0 * * *'   # daily at 00:00 UTC
-  workflow_dispatch:      # allows manual run from Actions tab
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Download streak image
         run: |
-          curl -L "https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" -o streak.png
+          curl -L "https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" --output streak.png
 
-      - name: Create assets dir (if needed)
+      - name: Create assets directory
         run: mkdir -p assets
 
-      - name: Move image to assets
+      - name: Move streak image
         run: mv streak.png assets/streak.png
 
-      - name: Commit and push if changed
+      - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/streak.png
-          git diff --quiet --cached || (git commit -m "Update streak image" && git push)
+          git diff --cached --quiet || git commit -m "Update streak image"
+          git push
+
