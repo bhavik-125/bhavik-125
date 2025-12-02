@@ -58,7 +58,7 @@
 
 ### 🔥 Current GitHub Streak
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" />
+  <img src="https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" />
 </p>
 
 ---
