@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
+<img width="1165" height="195" alt="image" src="https://github.com/user-attachments/assets/a096d649-1f25-4a2f-9cb4-7c99d3833a72" /><h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
 <h3 align="center">A passionate cybersecurity enthusiast and reverse engineer from India</h3>
 
 <br/>
@@ -58,8 +58,9 @@
 
 ### 🔥 Current GitHub Streak
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" />
+  <img src="https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false&cachebuster=1" />
 </p>
+
 
 ---
 ### 📊 GitHub Summary
