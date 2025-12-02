@@ -59,7 +59,7 @@
 
 ### 🔥 Current GitHub Streak
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bhavik-125&theme=midnight-purple&hide_border=false" />
+  <img src="./assets/streak.png" alt="GitHub Streak" />
 </p>
 
 
