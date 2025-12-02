@@ -56,6 +56,7 @@
 
 ---
 
+
 ### 🔥 Current GitHub Streak
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=bhavik-125&theme=midnight-purple&hide_border=false&cachebuster=1" />
@@ -78,11 +79,6 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bhavik-125&theme=radical" height="180"/>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bhavik-125&theme=radical" height="180"/>
 </p>
-
-
-
-
-
 
 
 ---
