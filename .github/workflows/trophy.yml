@@ -2,10 +2,10 @@ name: Generate Trophy
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # once a day
-  workflow_dispatch:       # manual run button
+    - cron: "0 0 * * *"      # runs daily at midnight
+  workflow_dispatch:          # manual trigger
   push:
-    branches: [ main ]
+    branches: [ main ]        # regenerate on main updates
 
 jobs:
   build:
@@ -16,13 +16,15 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # IMPORTANT for rebase
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install (no external deps, but keep for future)
+      - name: Install dependencies
         run: npm install
 
       - name: Generate trophy
@@ -38,6 +40,7 @@ jobs:
 
           git add trophy.svg
 
+          # If no changes, exit
           if git diff --cached --quiet; then
             echo "No changes in trophy.svg"
             exit 0
@@ -45,6 +48,7 @@ jobs:
 
           git commit -m "Update trophy.svg"
 
+          # Prevent push rejection
           git pull --rebase origin main
-          git push origin main
 
+          git push origin main
