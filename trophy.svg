@@ -3,23 +3,23 @@
      xmlns="http://www.w3.org/2000/svg">
 
   <defs>
-    <!-- Smooth, subtle navy gradient -->
+    <!-- Smooth dark gradient (matches your GitHub UI) -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
 
     <!-- Card background -->
     <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
   </defs>
 
-  <!-- Main Background Panel -->
+  <!-- Main Background -->
   <rect width="100%" height="100%" fill="url(#bg)" rx="32"/>
 
-  <!-- Header Title -->
+  <!-- Header -->
   <text x="50%" y="60" text-anchor="middle"
         font-size="32" fill="#e2e8f0"
         font-family="Segoe UI, system-ui"
@@ -64,7 +64,7 @@
         font-family="Segoe UI, system-ui" font-weight="700">10</text>
 
       <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Open source</text>
+        font-family="Segoe UI, system-ui">Open-source projects</text>
     </g>
     
   
@@ -81,7 +81,7 @@
         font-family="Segoe UI, system-ui" font-weight="700">5</text>
 
       <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Your followers</text>
+        font-family="Segoe UI, system-ui">People following your work</text>
     </g>
     
 
@@ -99,7 +99,7 @@
         font-family="Segoe UI, system-ui" font-weight="700">6</text>
 
       <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">You follow</text>
+        font-family="Segoe UI, system-ui">Developers you follow</text>
     </g>
     
   
@@ -116,7 +116,7 @@
         font-family="Segoe UI, system-ui" font-weight="700">0</text>
 
       <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Forks from your repos</text>
+        font-family="Segoe UI, system-ui">Forks on your repos</text>
     </g>
     
   
@@ -130,10 +130,10 @@
         font-family="Segoe UI, system-ui">Top Languages</text>
 
       <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">Python • JavaScript • Go</text>
+        font-family="Segoe UI, system-ui" font-weight="700">Python • JavaScript...</text>
 
       <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Most used</text>
+        font-family="Segoe UI, system-ui">Most-used languages</text>
     </g>
     
 </svg>
