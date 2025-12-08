@@ -1,37 +1,43 @@
+// index.js — Bhavik's Custom GitHub Trophy Generator
+
 const fs = require("fs");
 const path = require("path");
 
 const username = process.env.GITHUB_USERNAME || "bhavik-125";
 const githubToken = process.env.GITHUB_TOKEN;
 
-// Helper to call GitHub API
+// ---- Helper to call GitHub API ----
 async function githubFetch(url) {
   const headers = {
     "User-Agent": "bhavik-125-trophy-generator",
-    "Accept": "application/vnd.github+json"
+    "Accept": "application/vnd.github+json",
   };
-  if (githubToken) {
-    headers.Authorization = `Bearer ${githubToken}`;
-  }
+
+  if (githubToken) headers.Authorization = `Bearer ${githubToken}`;
+
   const res = await fetch(url, { headers });
+
   if (!res.ok) {
-    throw new Error(`GitHub API error ${res.status} for ${url}`);
+    console.error(`GitHub API Error ${res.status}: ${await res.text()}`);
+    throw new Error(`API error fetching ${url}`);
   }
+
   return res.json();
 }
 
+// ---- Get all GitHub Stats ----
 async function getStats() {
-  // Basic user info
   const user = await githubFetch(`https://api.github.com/users/${username}`);
 
-  // Repos (for stars, languages, etc.)
   let repos = [];
   let page = 1;
+
   while (true) {
     const chunk = await githubFetch(
       `https://api.github.com/users/${username}/repos?per_page=100&page=${page}`
     );
     if (chunk.length === 0) break;
+
     repos = repos.concat(chunk);
     page++;
   }
@@ -39,16 +45,16 @@ async function getStats() {
   const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
   const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
 
-  // Count languages
   const langCounts = {};
-  for (const r of repos) {
-    if (!r.language) continue;
+  repos.forEach((r) => {
+    if (!r.language) return;
     langCounts[r.language] = (langCounts[r.language] || 0) + 1;
-  }
+  });
+
   const topLanguages = Object.entries(langCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([lang]) => lang);
+    .map(([lang]) => lang)
+    .slice(0, 3);
 
   return {
     name: user.name || username,
@@ -58,10 +64,11 @@ async function getStats() {
     following: user.following,
     totalStars,
     totalForks,
-    topLanguages
+    topLanguages,
   };
 }
 
+// ---- Build the SVG with Dark + Neon Cyan Theme ----
 function buildSVG(stats) {
   const width = 940;
   const height = 320;
@@ -71,28 +78,23 @@ function buildSVG(stats) {
      xmlns="http://www.w3.org/2000/svg">
 
   <defs>
-    <!-- Background gradient (deep dark) -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0d1117"/>
       <stop offset="100%" stop-color="#0b0f14"/>
     </linearGradient>
 
-    <!-- Card background -->
     <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
 
-    <!-- Neon border -->
     <filter id="neon">
       <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#00f5ff"/>
     </filter>
   </defs>
 
-  <!-- Main background -->
   <rect width="100%" height="100%" fill="url(#bg)" rx="24"/>
 
-  <!-- Header -->
   <text x="50%" y="50" text-anchor="middle"
         font-family="Segoe UI, system-ui"
         font-size="28" fill="#e5e7eb" font-weight="700">
@@ -105,20 +107,17 @@ function buildSVG(stats) {
     @${stats.username} • Top Languages: ${stats.topLanguages.join(" • ") || "None"}
   </text>
 
+  ${card(40, 110, "Total Stars", stats.totalStars, "Cumulative stars across repos")}
+  ${card(340, 110, "Public Repositories", stats.publicRepos, "Open-source projects")}
+  ${card(640, 110, "Followers", stats.followers, "People following your work")}
 
-  <!-- CARD FUNCTION -->
-  ${createCard(40, 110, "Total Stars", stats.totalStars, "Cumulative stars across repos")}
-  ${createCard(340, 110, "Public Repos", stats.publicRepos, "Open-source projects")}
-  ${createCard(640, 110, "Followers", stats.followers, "People following your work")}
-
-  ${createCard(40, 220, "Following", stats.following, "Developers you follow")}
-  ${createCard(340, 220, "Total Forks", stats.totalForks, "Forks on your repos")}
-  ${createCard(640, 220, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most-used languages")}
-
+  ${card(40, 220, "Following", stats.following, "Developers you follow")}
+  ${card(340, 220, "Total Forks", stats.totalForks, "Forks on your repos")}
+  ${card(640, 220, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most-used languages")}
 </svg>
 `;
 
-  function createCard(x, y, title, value, description) {
+  function card(x, y, title, value, description) {
     return `
       <g transform="translate(${x}, ${y})">
         <rect width="260" height="90" rx="18"
@@ -141,16 +140,18 @@ function buildSVG(stats) {
   }
 }
 
-
+// ---- Main Runner ----
 async function main() {
   try {
     const stats = await getStats();
     const svg = buildSVG(stats);
+
     const outPath = path.join(__dirname, "trophy.svg");
     fs.writeFileSync(outPath, svg, "utf8");
-    console.log("trophy.svg generated successfully.");
+
+    console.log("✅ trophy.svg generated successfully.");
   } catch (err) {
-    console.error("Error generating trophy:", err);
+    console.error("❌ Error generating trophy:", err);
     process.exit(1);
   }
 }
