@@ -63,110 +63,84 @@ async function getStats() {
 }
 
 function buildSVG(stats) {
-  const width = 900;
-  const height = 220;
-  const padding = 20;
-  const cardWidth = 260;
-  const cardHeight = 80;
-  const cardRadius = 18;
-
-  const card = (x, y, title, value, subtitle) => `
-    <g transform="translate(${x}, ${y})">
-      <rect x="0" y="0" rx="${cardRadius}" ry="${cardRadius}" width="${cardWidth}" height="${cardHeight}"
-        fill="#1f2933" stroke="#4fd1c5" stroke-width="2"/>
-      <text x="16" y="28" font-size="16" fill="#e5e7eb" font-family="Segoe UI, system-ui, sans-serif">
-        ${title}
-      </text>
-      <text x="16" y="52" font-size="24" fill="#fbbf24" font-family="Segoe UI, system-ui, sans-serif" font-weight="bold">
-        ${value}
-      </text>
-      ${
-        subtitle
-          ? `<text x="16" y="70" font-size="12" fill="#9ca3af" font-family="Segoe UI, system-ui, sans-serif">
-        ${subtitle}
-      </text>`
-          : ""
-      }
-    </g>
-  `;
-
-  const langs =
-    stats.topLanguages.length > 0
-      ? stats.topLanguages.join(" · ")
-      : "No dominant language";
+  const width = 940;
+  const height = 320;
 
   return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"
-     xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">${stats.username} GitHub Trophies</title>
-  <desc id="desc">Self-hosted trophy style stats card for ${stats.username}</desc>
+     xmlns="http://www.w3.org/2000/svg">
 
   <defs>
+    <!-- Background gradient (deep dark) -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#0b0f14"/>
     </linearGradient>
+
+    <!-- Card background -->
+    <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Neon border -->
+    <filter id="neon">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#00f5ff"/>
+    </filter>
   </defs>
 
-  <rect width="100%" height="100%" fill="url(#bg)" rx="24" ry="24"/>
+  <!-- Main background -->
+  <rect width="100%" height="100%" fill="url(#bg)" rx="24"/>
 
-  <text x="${width / 2}" y="40" text-anchor="middle"
-        font-family="Segoe UI, system-ui, sans-serif"
-        font-size="24" fill="#e5e7eb" font-weight="600">
+  <!-- Header -->
+  <text x="50%" y="50" text-anchor="middle"
+        font-family="Segoe UI, system-ui"
+        font-size="28" fill="#e5e7eb" font-weight="700">
     🏆 ${stats.name}'s GitHub Trophies
   </text>
-  <text x="${width / 2}" y="64" text-anchor="middle"
-        font-family="Segoe UI, system-ui, sans-serif"
-        font-size="14" fill="#9ca3af">
-    @${stats.username} • Top Languages: ${langs}
+
+  <text x="50%" y="80" text-anchor="middle"
+        font-family="Segoe UI, system-ui"
+        font-size="16" fill="#9ca3af">
+    @${stats.username} • Top Languages: ${stats.topLanguages.join(" • ") || "None"}
   </text>
 
-  ${card(
-    padding,
-    90,
-    "Total Stars",
-    stats.totalStars,
-    "Cumulative stars across public repos"
-  )}
-  ${card(
-    padding + cardWidth + 30,
-    90,
-    "Public Repositories",
-    stats.publicRepos,
-    "Open source projects"
-  )}
-  ${card(
-    padding + (cardWidth + 30) * 2,
-    90,
-    "Followers",
-    stats.followers,
-    "People following your work"
-  )}
 
-  ${card(
-    padding,
-    90 + cardHeight + 20,
-    "Following",
-    stats.following,
-    "Developers you follow"
-  )}
-  ${card(
-    padding + cardWidth + 30,
-    90 + cardHeight + 20,
-    "Total Forks",
-    stats.totalForks,
-    "Repos forked from you"
-  )}
-  ${card(
-    padding + (cardWidth + 30) * 2,
-    90 + cardHeight + 20,
-    "Top Languages",
-    stats.topLanguages.join(" • ") || "None",
-    "Most-used repo languages"
-  )}
+  <!-- CARD FUNCTION -->
+  ${createCard(40, 110, "Total Stars", stats.totalStars, "Cumulative stars across repos")}
+  ${createCard(340, 110, "Public Repos", stats.publicRepos, "Open-source projects")}
+  ${createCard(640, 110, "Followers", stats.followers, "People following your work")}
+
+  ${createCard(40, 220, "Following", stats.following, "Developers you follow")}
+  ${createCard(340, 220, "Total Forks", stats.totalForks, "Forks on your repos")}
+  ${createCard(640, 220, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most-used languages")}
+
 </svg>
 `;
+
+  function createCard(x, y, title, value, description) {
+    return `
+      <g transform="translate(${x}, ${y})">
+        <rect width="260" height="90" rx="18"
+          fill="url(#card-bg)"
+          stroke="#00f5ff"
+          stroke-width="2"
+          filter="url(#neon)"
+        />
+
+        <text x="16" y="32" font-size="16" fill="#cbd5e1"
+          font-family="Segoe UI, system-ui">${title}</text>
+
+        <text x="16" y="60" font-size="28" fill="#fbbf24"
+          font-family="Segoe UI, system-ui" font-weight="700">${value}</text>
+
+        <text x="16" y="80" font-size="12" fill="#64748b"
+          font-family="Segoe UI, system-ui">${description}</text>
+      </g>
+    `;
+  }
 }
+
 
 async function main() {
   try {
