@@ -1,0 +1,10 @@
+{
+  "name": "trophy-generator",
+  "version": "1.0.0",
+  "description": "Self-hosted GitHub trophy SVG generator for bhavik-125",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT"
+}
