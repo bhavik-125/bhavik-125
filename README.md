@@ -9,7 +9,7 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bhavik-125/bhavik-125/main/trophy.svg?cachebust=5" />
+  <img src="https://github-profile-trophy.vercel.app/?username=bhavik-125&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy" />
 </p>
 
 ---
