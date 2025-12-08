@@ -1,4 +1,4 @@
-// index.js — Bhavik's Custom GitHub Trophy Generator
+// index.js — Bhavik's Improved GitHub Trophy Generator (Theme-Matched)
 
 const fs = require("fs");
 const path = require("path");
@@ -6,44 +6,33 @@ const path = require("path");
 const username = process.env.GITHUB_USERNAME || "bhavik-125";
 const githubToken = process.env.GITHUB_TOKEN;
 
-// ---- Helper to call GitHub API ----
 async function githubFetch(url) {
   const headers = {
     "User-Agent": "bhavik-125-trophy-generator",
-    "Accept": "application/vnd.github+json",
+    "Accept": "application/vnd.github+json"
   };
-
   if (githubToken) headers.Authorization = `Bearer ${githubToken}`;
-
   const res = await fetch(url, { headers });
-
-  if (!res.ok) {
-    console.error(`GitHub API Error ${res.status}: ${await res.text()}`);
-    throw new Error(`API error fetching ${url}`);
-  }
-
+  if (!res.ok) throw new Error(`GitHub error ${res.status}`);
   return res.json();
 }
 
-// ---- Get all GitHub Stats ----
 async function getStats() {
   const user = await githubFetch(`https://api.github.com/users/${username}`);
 
   let repos = [];
   let page = 1;
-
   while (true) {
     const chunk = await githubFetch(
       `https://api.github.com/users/${username}/repos?per_page=100&page=${page}`
     );
     if (chunk.length === 0) break;
-
     repos = repos.concat(chunk);
     page++;
   }
 
-  const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
-  const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+  const totalStars = repos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
+  const totalForks = repos.reduce((a, r) => a + (r.forks_count || 0), 0);
 
   const langCounts = {};
   repos.forEach((r) => {
@@ -64,92 +53,95 @@ async function getStats() {
     following: user.following,
     totalStars,
     totalForks,
-    topLanguages,
+    topLanguages
   };
 }
 
-// ---- Build the SVG with Dark + Neon Cyan Theme ----
+// =====================================================
+// PERFECT THEME-MATCH SVG
+// =====================================================
+
 function buildSVG(stats) {
-  const width = 940;
-  const height = 320;
+  const width = 1000;
+  const height = 350;
 
   return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"
      xmlns="http://www.w3.org/2000/svg">
 
   <defs>
+    <!-- Smooth, subtle navy gradient -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d1117"/>
-      <stop offset="100%" stop-color="#0b0f14"/>
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
 
-    <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <!-- Card background -->
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
-
-    <filter id="neon">
-      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#00f5ff"/>
-    </filter>
   </defs>
 
-  <rect width="100%" height="100%" fill="url(#bg)" rx="24"/>
+  <!-- Main Background Panel -->
+  <rect width="100%" height="100%" fill="url(#bg)" rx="32"/>
 
-  <text x="50%" y="50" text-anchor="middle"
+  <!-- Header Title -->
+  <text x="50%" y="60" text-anchor="middle"
+        font-size="32" fill="#e2e8f0"
         font-family="Segoe UI, system-ui"
-        font-size="28" fill="#e5e7eb" font-weight="700">
+        font-weight="700">
     🏆 ${stats.name}'s GitHub Trophies
   </text>
 
-  <text x="50%" y="80" text-anchor="middle"
-        font-family="Segoe UI, system-ui"
-        font-size="16" fill="#9ca3af">
+  <text x="50%" y="95" text-anchor="middle"
+        font-size="16" fill="#94a3b8"
+        font-family="Segoe UI, system-ui">
     @${stats.username} • Top Languages: ${stats.topLanguages.join(" • ") || "None"}
   </text>
 
-  ${card(40, 110, "Total Stars", stats.totalStars, "Cumulative stars across repos")}
-  ${card(340, 110, "Public Repositories", stats.publicRepos, "Open-source projects")}
-  ${card(640, 110, "Followers", stats.followers, "People following your work")}
+  ${card(60, 130, "Total Stars", stats.totalStars, "Cumulative stars")}
+  ${card(370, 130, "Public Repositories", stats.publicRepos, "Open source")}
+  ${card(680, 130, "Followers", stats.followers, "Your followers")}
 
-  ${card(40, 220, "Following", stats.following, "Developers you follow")}
-  ${card(340, 220, "Total Forks", stats.totalForks, "Forks on your repos")}
-  ${card(640, 220, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most-used languages")}
+  ${card(60, 250, "Following", stats.following, "You follow")}
+  ${card(370, 250, "Total Forks", stats.totalForks, "Forks from your repos")}
+  ${card(680, 250, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most used")}
 </svg>
 `;
 
-  function card(x, y, title, value, description) {
+  // ===== Card Component =====
+  function card(x, y, title, value, desc) {
     return `
-      <g transform="translate(${x}, ${y})">
-        <rect width="260" height="90" rx="18"
-          fill="url(#card-bg)"
-          stroke="#00f5ff"
-          stroke-width="2"
-          filter="url(#neon)"
-        />
+    <g transform="translate(${x}, ${y})">
+      <rect width="260" height="100" rx="22"
+        fill="url(#card)"
+        stroke="#38bdf8"
+        stroke-width="2"/>
 
-        <text x="16" y="32" font-size="16" fill="#cbd5e1"
-          font-family="Segoe UI, system-ui">${title}</text>
+      <text x="18" y="32" font-size="16" fill="#e2e8f0"
+        font-family="Segoe UI, system-ui">${title}</text>
 
-        <text x="16" y="60" font-size="28" fill="#fbbf24"
-          font-family="Segoe UI, system-ui" font-weight="700">${value}</text>
+      <text x="18" y="68" font-size="28" fill="#fbbf24"
+        font-family="Segoe UI, system-ui" font-weight="700">${value}</text>
 
-        <text x="16" y="80" font-size="12" fill="#64748b"
-          font-family="Segoe UI, system-ui">${description}</text>
-      </g>
+      <text x="18" y="88" font-size="12" fill="#94a3b8"
+        font-family="Segoe UI, system-ui">${desc}</text>
+    </g>
     `;
   }
 }
 
-// ---- Main Runner ----
+// ---------------------- MAIN ----------------------
 async function main() {
   try {
     const stats = await getStats();
     const svg = buildSVG(stats);
 
-    const outPath = path.join(__dirname, "trophy.svg");
-    fs.writeFileSync(outPath, svg, "utf8");
+    const output = path.join(__dirname, "trophy.svg");
+    fs.writeFileSync(output, svg, "utf8");
 
-    console.log("✅ trophy.svg generated successfully.");
+    console.log("🏆 trophy.svg updated.");
   } catch (err) {
     console.error("❌ Error generating trophy:", err);
     process.exit(1);
