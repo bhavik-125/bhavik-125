@@ -1,139 +1,179 @@
 
-<svg width="1000" height="350" viewBox="0 0 1000 350"
-     xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="260" viewBox="0 0 900 260"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">bhavik-125 GitHub Trophies</title>
+  <desc id="desc">Classic trophy badges generated from GitHub stats</desc>
 
   <defs>
-    <!-- Smooth dark gradient (matches your GitHub UI) -->
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-
-    <!-- Card background -->
-    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+    <linearGradient id="panel-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2c313a"/>
+      <stop offset="100%" stop-color="#21252b"/>
     </linearGradient>
   </defs>
 
-  <!-- Main Background -->
-  <rect width="100%" height="100%" fill="url(#bg)" rx="32"/>
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#282c34" rx="16" />
 
   <!-- Header -->
-  <text x="50%" y="60" text-anchor="middle"
-        font-size="32" fill="#e2e8f0"
+  <text x="450" y="40" text-anchor="middle"
         font-family="Segoe UI, system-ui"
-        font-weight="700">
+        font-size="22" fill="#abb2bf" font-weight="600">
     🏆 Bhavik Umesh Thakkar's GitHub Trophies
   </text>
-
-  <text x="50%" y="95" text-anchor="middle"
-        font-size="16" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">
+  <text x="450" y="64" text-anchor="middle"
+        font-family="Segoe UI, system-ui"
+        font-size="13" fill="#5c6370">
     @bhavik-125 • Top Languages: Python • JavaScript • Go
   </text>
 
   
-    <g transform="translate(60, 130)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
+    <g transform="translate(40, 90)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
 
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Total Stars</text>
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        ⭐ Star Collector
+      </text>
 
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">1</text>
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        1
+      </text>
 
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Cumulative stars</text>
-    </g>
-    
-  
-    <g transform="translate(370, 130)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
-
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Public Repositories</text>
-
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">10</text>
-
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Open-source projects</text>
-    </g>
-    
-  
-    <g transform="translate(680, 130)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
-
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Followers</text>
-
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">5</text>
-
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">People following your work</text>
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Total Stars
+      </text>
     </g>
     
 
-  
-    <g transform="translate(60, 250)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
+    <g transform="translate(330, 90)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
 
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Following</text>
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        📦 Repository Master
+      </text>
 
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">6</text>
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        10
+      </text>
 
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Developers you follow</text>
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Public Repos
+      </text>
     </g>
     
-  
-    <g transform="translate(370, 250)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
 
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Total Forks</text>
+    <g transform="translate(620, 90)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
 
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">0</text>
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        👥 People's Choice
+      </text>
 
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Forks on your repos</text>
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        5
+      </text>
+
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Followers
+      </text>
     </g>
     
-  
-    <g transform="translate(680, 250)">
-      <rect width="260" height="100" rx="22"
-        fill="url(#card)"
-        stroke="#38bdf8"
-        stroke-width="2"/>
 
-      <text x="18" y="32" font-size="16" fill="#e2e8f0"
-        font-family="Segoe UI, system-ui">Top Languages</text>
+    <g transform="translate(40, 205)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
 
-      <text x="18" y="68" font-size="28" fill="#fbbf24"
-        font-family="Segoe UI, system-ui" font-weight="700">Python • JavaScript...</text>
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        🧑‍💻 Social Coder
+      </text>
 
-      <text x="18" y="88" font-size="12" fill="#94a3b8"
-        font-family="Segoe UI, system-ui">Most-used languages</text>
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        6
+      </text>
+
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Following
+      </text>
+    </g>
+    
+
+    <g transform="translate(330, 205)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
+
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        🍴 Fork Forge
+      </text>
+
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        0
+      </text>
+
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Total Forks
+      </text>
+    </g>
+    
+
+    <g transform="translate(620, 205)">
+      <rect width="260" height="90" rx="14"
+        fill="url(#panel-bg)"
+        stroke="#c678dd" stroke-width="1.8" />
+
+      <text x="18" y="30"
+        font-family="Segoe UI, system-ui"
+        font-size="18" fill="#abb2bf">
+        🧠 Polyglot
+      </text>
+
+      <text x="22" y="57"
+        font-family="Segoe UI, system-ui"
+        font-size="22" fill="#e5c07b" font-weight="700">
+        Python
+      </text>
+
+      <text x="22" y="76"
+        font-family="Segoe UI, system-ui"
+        font-size="11" fill="#5c6370">
+        Top Language
+      </text>
     </g>
     
 </svg>
