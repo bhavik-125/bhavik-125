@@ -1,4 +1,4 @@
-// index.js — Bhavik's Improved GitHub Trophy Generator (Theme-Matched)
+// index.js — Bhavik's Perfect Theme GitHub Trophy (Glow Removed + Theme Matched)
 
 const fs = require("fs");
 const path = require("path");
@@ -58,7 +58,7 @@ async function getStats() {
 }
 
 // =====================================================
-// PERFECT THEME-MATCH SVG
+// FINAL PERFECT THEME — NO GLOW, CLEAN TEAL BORDERS
 // =====================================================
 
 function buildSVG(stats) {
@@ -70,23 +70,23 @@ function buildSVG(stats) {
      xmlns="http://www.w3.org/2000/svg">
 
   <defs>
-    <!-- Smooth, subtle navy gradient -->
+    <!-- Smooth dark gradient (matches your GitHub UI) -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
 
     <!-- Card background -->
     <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
   </defs>
 
-  <!-- Main Background Panel -->
+  <!-- Main Background -->
   <rect width="100%" height="100%" fill="url(#bg)" rx="32"/>
 
-  <!-- Header Title -->
+  <!-- Header -->
   <text x="50%" y="60" text-anchor="middle"
         font-size="32" fill="#e2e8f0"
         font-family="Segoe UI, system-ui"
@@ -101,12 +101,12 @@ function buildSVG(stats) {
   </text>
 
   ${card(60, 130, "Total Stars", stats.totalStars, "Cumulative stars")}
-  ${card(370, 130, "Public Repositories", stats.publicRepos, "Open source")}
-  ${card(680, 130, "Followers", stats.followers, "Your followers")}
+  ${card(370, 130, "Public Repositories", stats.publicRepos, "Open-source projects")}
+  ${card(680, 130, "Followers", stats.followers, "People following your work")}
 
-  ${card(60, 250, "Following", stats.following, "You follow")}
-  ${card(370, 250, "Total Forks", stats.totalForks, "Forks from your repos")}
-  ${card(680, 250, "Top Languages", stats.topLanguages.join(" • ") || "None", "Most used")}
+  ${card(60, 250, "Following", stats.following, "Developers you follow")}
+  ${card(370, 250, "Total Forks", stats.totalForks, "Forks on your repos")}
+  ${card(680, 250, "Top Languages", fit(stats.topLanguages.join(" • ")), "Most-used languages")}
 </svg>
 `;
 
@@ -130,17 +130,21 @@ function buildSVG(stats) {
     </g>
     `;
   }
+
+  // Fix overflow text
+  function fit(text) {
+    if (text.length > 22) {
+      return text.slice(0, 19) + "...";
+    }
+    return text;
+  }
 }
 
-// ---------------------- MAIN ----------------------
 async function main() {
   try {
     const stats = await getStats();
     const svg = buildSVG(stats);
-
-    const output = path.join(__dirname, "trophy.svg");
-    fs.writeFileSync(output, svg, "utf8");
-
+    fs.writeFileSync(path.join(__dirname, "trophy.svg"), svg, "utf8");
     console.log("🏆 trophy.svg updated.");
   } catch (err) {
     console.error("❌ Error generating trophy:", err);
