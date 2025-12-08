@@ -1,0 +1,44 @@
+name: Generate Trophy
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # once a day
+  workflow_dispatch:       # manual run button
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install (no external deps, but keep for future)
+        run: npm install
+
+      - name: Generate trophy
+        env:
+          GITHUB_USERNAME: bhavik-125
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node index.js
+
+      - name: Commit and push if changed
+        run: |
+          if [[ -n "$(git status --porcelain trophy.svg)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add trophy.svg
+            git commit -m "Update trophy.svg"
+            git push
+          else
+            echo "No changes to commit."
+          fi
