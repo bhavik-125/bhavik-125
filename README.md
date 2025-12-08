@@ -9,7 +9,7 @@
 
 <!-- TROPHIES -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bhavik-125/bhavik-125/main/trophy.svg?cachebust=4" />
+  <img src="https://raw.githubusercontent.com/bhavik-125/bhavik-125/main/trophy.svg?cachebust=10" />
 </p>
 
 ---
