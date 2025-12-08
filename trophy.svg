@@ -1,366 +1,340 @@
 
-<svg width="1200" height="260" viewBox="0 0 1200 260"
-     xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">bhavik-125 GitHub Trophies</title>
-  <desc id="desc">Vercel-style trophy row showing commits, repos, stars, followers and more</desc>
+<svg width="1200" height="260"
+     viewBox="0 0 1200 260"
+     xmlns="http://www.w3.org/2000/svg">
 
-  <!-- background panel -->
   <rect x="0" y="0" width="1200" height="260" rx="24" fill="#1f2228" />
 
-  <!-- header -->
   <text x="600" y="40" text-anchor="middle"
-        font-family="Segoe UI, system-ui"
-        font-size="26" fill="#e5e7eb" font-weight="600">
+        font-size="26" font-family="Segoe UI, system-ui"
+        fill="#e5e7eb" font-weight="600">
     🏆 Bhavik Umesh Thakkar's GitHub Trophies
   </text>
+
   <text x="600" y="62" text-anchor="middle"
-        font-family="Segoe UI, system-ui"
-        font-size="13" fill="#b0b3c3">
+        font-size="13" font-family="Segoe UI, system-ui"
+        fill="#b0b3c3">
     @bhavik-125
   </text>
 
   
   <g transform="translate(40, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Commits
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#9ca3af" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#c0c0c0" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af" font-weight="700">
-      ?
+          fill="#c0c0c0" font-size="18" font-family="Segoe UI" font-weight="700">
+      B
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#c0c0c0">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
-      Unknown
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
+      Active Committer
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
-      0pt
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
+      192pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="0" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(174, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Repositories
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#c0c0c0" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#c0c0c0" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#c0c0c0" font-weight="700">
+          fill="#c0c0c0" font-size="18" font-family="Segoe UI" font-weight="700">
       B
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#c0c0c0">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#c0c0c0">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       Middle Repo Creator
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       20pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="19.200000000000003" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="19.200000000000003" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(308, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Experience
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#cd7f32" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#cd7f32" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32" font-weight="700">
+          fill="#cd7f32" font-size="18" font-family="Segoe UI" font-weight="700">
       C
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#cd7f32">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       Junior Dev
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       9pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="3.6194925953729067" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="3.619514725783866" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(442, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Stars
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#cd7f32" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#cd7f32" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32" font-weight="700">
+          fill="#cd7f32" font-size="18" font-family="Segoe UI" font-weight="700">
       C
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#cd7f32">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       First Star
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       1pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="1.92" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="1.92" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(576, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Followers
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#cd7f32" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#cd7f32" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32" font-weight="700">
+          fill="#cd7f32" font-size="18" font-family="Segoe UI" font-weight="700">
       C
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#cd7f32">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       First Friend
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       5pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="9.600000000000001" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="9.600000000000001" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(710, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       PullRequest
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#cd7f32" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#cd7f32" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32" font-weight="700">
+          fill="#cd7f32" font-size="18" font-family="Segoe UI" font-weight="700">
       C
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#cd7f32">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#cd7f32">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       First Pull
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       1pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="1.92" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="1.92" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(844, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Issues
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#9ca3af" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#9ca3af" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af" font-weight="700">
+          fill="#9ca3af" font-size="18" font-family="Segoe UI" font-weight="700">
       ?
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#9ca3af">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       Unknown
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       0pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="0" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="0" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 
   <g transform="translate(978, 70)">
-    <rect x="0" y="0" width="120" height="170" rx="10"
+    <rect width="120" height="170" rx="10"
           fill="#343841" stroke="#f9d74c" stroke-width="1.5" />
 
-    <!-- category label -->
     <text x="60" y="24" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="13" fill="#f9d74c" font-weight="600">
+          fill="#f9d74c" font-size="13"
+          font-family="Segoe UI, system-ui" font-weight="600">
       Reviews
     </text>
 
-    <!-- trophy + rank circle -->
-    <circle cx="60" cy="60" r="22" fill="#1f2228" stroke="#9ca3af" stroke-width="2"/>
+    <circle cx="60" cy="60" r="22"
+            fill="#1f2228" stroke="#9ca3af" stroke-width="2" />
+
     <text x="60" y="56" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af" font-weight="700">
+          fill="#9ca3af" font-size="18" font-family="Segoe UI" font-weight="700">
       ?
     </text>
+
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI, system-ui"
-          font-size="18" fill="#9ca3af">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#9ca3af">
       🏆
     </text>
 
-    <!-- title & points -->
     <text x="60" y="104" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#e5e7eb" font-weight="600">
+          fill="#e5e7eb" font-size="11"
+          font-family="Segoe UI" font-weight="600">
       Unknown
     </text>
 
     <text x="60" y="120" text-anchor="middle"
-          font-family="Segoe UI, system-ui"
-          font-size="11" fill="#b0b3c3">
+          fill="#b0b3c3" font-size="11" font-family="Segoe UI">
       0pt
     </text>
 
-    <!-- progress bar -->
-    <rect x="12" y="150" width="96" height="5" rx="2.5" fill="#4b4f59" />
-    <rect x="12" y="150" width="0" height="5" rx="2.5" fill="#e06c75" />
+    <rect x="12" y="150" width="96" height="5" rx="2.5"
+          fill="#4b4f59" />
+    <rect x="12" y="150" width="0" height="5" rx="2.5"
+          fill="#e06c75" />
   </g>
-  
 </svg>
