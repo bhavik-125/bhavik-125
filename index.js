@@ -4,7 +4,7 @@ const path = require("path");
 const username = process.env.GITHUB_USERNAME || "bhavik-125";
 const githubToken = process.env.GITHUB_TOKEN;
 
-// ---------- GitHub API helper ----------
+// ---------------- GitHub API helper ----------------
 async function githubFetch(url) {
   const headers = {
     "User-Agent": "bhavik-125-trophy-generator",
@@ -21,117 +21,250 @@ async function githubFetch(url) {
   return res.json();
 }
 
-// ---------- Collect stats ----------
+// Count recent commits from public events (approx, last 90 days)
+async function getRecentCommits() {
+  let commits = 0;
+  for (let page = 1; page <= 3; page++) {
+    const events = await githubFetch(
+      `https://api.github.com/users/${username}/events/public?per_page=100&page=${page}`
+    );
+    if (!events.length) break;
+    for (const ev of events) {
+      if (ev.type === "PushEvent" && ev.payload && Array.isArray(ev.payload.commits)) {
+        commits += ev.payload.commits.length;
+      }
+    }
+  }
+  return commits;
+}
+
+// Get total issues / PRs created (using search API)
+// NOTE: this is approximate and rate-limited, but fine for once-per-day.
+async function getSearchCount(query) {
+  const data = await githubFetch(
+    `https://api.github.com/search/issues?q=${encodeURIComponent(query)}`
+  );
+  return data.total_count || 0;
+}
+
+// --------------- Collect all stats -----------------
 async function getStats() {
   const user = await githubFetch(`https://api.github.com/users/${username}`);
 
-  // get all repos (for stars, forks, languages)
+  // repos for stars/forks
   let repos = [];
   let page = 1;
   while (true) {
     const chunk = await githubFetch(
       `https://api.github.com/users/${username}/repos?per_page=100&page=${page}`
     );
-    if (chunk.length === 0) break;
+    if (!chunk.length) break;
     repos = repos.concat(chunk);
     page++;
   }
 
-  const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
-  const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+  const totalStars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+  const totalForks = repos.reduce((s, r) => s + (r.forks_count || 0), 0);
 
-  const langCounts = {};
-  for (const r of repos) {
-    if (!r.language) continue;
-    langCounts[r.language] = (langCounts[r.language] || 0) + 1;
-  }
-  const topLanguages = Object.entries(langCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([lang]) => lang)
-    .slice(0, 3);
+  const createdAt = new Date(user.created_at);
+  const years = Math.max(
+    0,
+    (Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24 * 365)
+  );
+
+  const recentCommits = await getRecentCommits();
+  const totalIssues = await getSearchCount(`author:${username} is:issue`);
+  const totalPRs = await getSearchCount(`author:${username} is:pr`);
+  // Reviews are hard to get via REST; show Unknown 0pt like original screenshot.
+  const totalReviews = 0;
 
   return {
     name: user.name || username,
     username,
+    createdAt,
     publicRepos: user.public_repos,
     followers: user.followers,
     following: user.following,
     totalStars,
     totalForks,
-    topLanguages,
+    experienceYears: years,
+    recentCommits,
+    totalIssues,
+    totalPRs,
+    totalReviews,
   };
 }
 
-// ---------- Build classic badge-style SVG ----------
+// ---------- helpers for ranks / titles / points ----------
+function commitsTrophy(commits) {
+  if (commits >= 200)
+    return { rank: "A", title: "High Committer", points: commits };
+  if (commits >= 50)
+    return { rank: "B", title: "Active Committer", points: commits };
+  if (commits > 0)
+    return { rank: "C", title: "First Committer", points: commits };
+  return { rank: "?", title: "Unknown", points: 0 };
+}
+
+function reposTrophy(repos) {
+  if (repos >= 30)
+    return { rank: "A", title: "Repo Tycoon", points: repos * 3 };
+  if (repos >= 10)
+    return { rank: "B", title: "Middle Repo Creator", points: repos * 2 };
+  if (repos > 0)
+    return { rank: "C", title: "First Repo", points: repos };
+  return { rank: "?", title: "No Repos", points: 0 };
+}
+
+function experienceTrophy(years) {
+  if (years >= 5)
+    return { rank: "A", title: "Senior Dev", points: Math.round(years * 10) };
+  if (years >= 2)
+    return { rank: "B", title: "Intermediate Dev", points: Math.round(years * 8) };
+  if (years > 0.2)
+    return { rank: "C", title: "Junior Dev", points: Math.round(years * 5) };
+  return { rank: "?", title: "Newbie", points: 0 };
+}
+
+function starsTrophy(stars) {
+  if (stars >= 100)
+    return { rank: "A", title: "Star Gazer", points: stars };
+  if (stars >= 20)
+    return { rank: "B", title: "Rising Star", points: stars };
+  if (stars > 0)
+    return { rank: "C", title: "First Star", points: stars };
+  return { rank: "?", title: "No Stars", points: 0 };
+}
+
+function followersTrophy(followers) {
+  if (followers >= 50)
+    return { rank: "A", title: "Influencer", points: followers * 2 };
+  if (followers >= 10)
+    return { rank: "B", title: "Popular Dev", points: followers * 2 };
+  if (followers > 0)
+    return { rank: "C", title: "First Friend", points: followers };
+  return { rank: "?", title: "No Followers", points: 0 };
+}
+
+function prsTrophy(prs) {
+  if (prs >= 50)
+    return { rank: "A", title: "PR Master", points: prs * 2 };
+  if (prs >= 10)
+    return { rank: "B", title: "PR Contributor", points: prs * 2 };
+  if (prs > 0)
+    return { rank: "C", title: "First Pull", points: prs };
+  return { rank: "?", title: "Unknown", points: 0 };
+}
+
+function issuesTrophy(issues) {
+  if (issues >= 50)
+    return { rank: "A", title: "Issue Tracker", points: issues };
+  if (issues >= 10)
+    return { rank: "B", title: "Bug Reporter", points: issues };
+  if (issues > 0)
+    return { rank: "C", title: "First Issue", points: issues };
+  return { rank: "?", title: "Unknown", points: 0 };
+}
+
+function reviewsTrophy(reviews) {
+  if (reviews > 0)
+    return { rank: "C", title: "Code Reviewer", points: reviews };
+  return { rank: "?", title: "Unknown", points: 0 };
+}
+
+// ---------- Build SVG: 8 trophies in a row ----------
 function buildSVG(stats) {
-  const width = 900;
+  const width = 1200;
   const height = 260;
 
-  // onedark-ish colors
-  const bg = "#282c34";
-  const panel = "#21252b";
-  const border = "#c678dd";   // purple-ish border
-  const textMain = "#e5c07b"; // yellow-ish value
-  const textTitle = "#abb2bf";
-  const textSub = "#5c6370";
+  const bg = "#1f2228";       // dark background
+  const cardBg = "#343841";   // card background
+  const cardBorder = "#f9d74c"; // border / header accent
+  const titleColor = "#f9d74c";
+  const textColor = "#e5e7eb";
+  const subColor = "#b0b3c3";
+  const barBg = "#4b4f59";
+  const barFill = "#e06c75";
 
-  // trophies (similar spirit to original)
-  const topLang = stats.topLanguages[0] || "None";
   const trophies = [
     {
-      icon: "⭐",
-      title: "Star Collector",
-      value: stats.totalStars,
-      sub: "Total Stars",
+      key: "commits",
+      label: "Commits",
+      metric: stats.recentCommits,
+      ...commitsTrophy(stats.recentCommits),
     },
     {
-      icon: "📦",
-      title: "Repository Master",
-      value: stats.publicRepos,
-      sub: "Public Repos",
+      key: "repos",
+      label: "Repositories",
+      metric: stats.publicRepos,
+      ...reposTrophy(stats.publicRepos),
     },
     {
-      icon: "👥",
-      title: "People's Choice",
-      value: stats.followers,
-      sub: "Followers",
+      key: "experience",
+      label: "Experience",
+      metric: stats.experienceYears,
+      ...experienceTrophy(stats.experienceYears),
     },
     {
-      icon: "🧑‍💻",
-      title: "Social Coder",
-      value: stats.following,
-      sub: "Following",
+      key: "stars",
+      label: "Stars",
+      metric: stats.totalStars,
+      ...starsTrophy(stats.totalStars),
     },
     {
-      icon: "🍴",
-      title: "Fork Forge",
-      value: stats.totalForks,
-      sub: "Total Forks",
+      key: "followers",
+      label: "Followers",
+      metric: stats.followers,
+      ...followersTrophy(stats.followers),
     },
     {
-      icon: "🧠",
-      title: "Polyglot",
-      value: topLang,
-      sub: "Top Language",
+      key: "pulls",
+      label: "PullRequest",
+      metric: stats.totalPRs,
+      ...prsTrophy(stats.totalPRs),
+    },
+    {
+      key: "issues",
+      label: "Issues",
+      metric: stats.totalIssues,
+      ...issuesTrophy(stats.totalIssues),
+    },
+    {
+      key: "reviews",
+      label: "Reviews",
+      metric: stats.totalReviews,
+      ...reviewsTrophy(stats.totalReviews),
     },
   ];
 
-  // layout: 3 columns x 2 rows
-  const cols = 3;
-  const badgeW = 260;
-  const badgeH = 90;
-  const hGap = 30;
-  const vGap = 25;
-  const leftMargin = 40;
-  const topMargin = 90;
+  const cardW = 120;
+  const cardH = 170;
+  const gap = 14;
+  const left = 40;
+  const top = 70;
 
-  const badgesSVG = trophies
+  const cardsSVG = trophies
     .map((t, i) => {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      const x = leftMargin + col * (badgeW + hGap);
-      const y = topMargin + row * (badgeH + vGap);
-      return badge(x, y, badgeW, badgeH, t.icon, t.title, t.value, t.sub);
+      const x = left + i * (cardW + gap);
+      return trophyCard(
+        x,
+        top,
+        cardW,
+        cardH,
+        t.label,
+        t.rank,
+        t.title,
+        t.points,
+        t.metric,
+        bg,
+        cardBg,
+        cardBorder,
+        titleColor,
+        textColor,
+        subColor,
+        barBg,
+        barFill
+      );
     })
     .join("\n");
 
@@ -139,76 +272,113 @@ function buildSVG(stats) {
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"
      xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${stats.username} GitHub Trophies</title>
-  <desc id="desc">Classic trophy badges generated from GitHub stats</desc>
+  <desc id="desc">Vercel-style trophy row showing commits, repos, stars, followers and more</desc>
 
-  <defs>
-    <linearGradient id="panel-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2c313a"/>
-      <stop offset="100%" stop-color="${panel}"/>
-    </linearGradient>
-  </defs>
+  <!-- background panel -->
+  <rect x="0" y="0" width="${width}" height="${height}" rx="24" fill="${bg}" />
 
-  <!-- Background -->
-  <rect width="100%" height="100%" fill="${bg}" rx="16" />
-
-  <!-- Header -->
+  <!-- header -->
   <text x="${width / 2}" y="40" text-anchor="middle"
         font-family="Segoe UI, system-ui"
-        font-size="22" fill="${textTitle}" font-weight="600">
+        font-size="26" fill="${textColor}" font-weight="600">
     🏆 ${stats.name}'s GitHub Trophies
   </text>
-  <text x="${width / 2}" y="64" text-anchor="middle"
+  <text x="${width / 2}" y="62" text-anchor="middle"
         font-family="Segoe UI, system-ui"
-        font-size="13" fill="${textSub}">
-    @${stats.username} • Top Languages: ${stats.topLanguages.join(" • ") || "None"}
+        font-size="13" fill="${subColor}">
+    @${stats.username}
   </text>
 
-  ${badgesSVG}
+  ${cardsSVG}
 </svg>
 `;
-
-  // Single badge (classic trophy style)
-  function badge(x, y, w, h, icon, title, value, sub) {
-    // Limit text for long language names
-    let valText = String(value);
-    if (valText.length > 12) valText = valText.slice(0, 11) + "…";
-
-    return `
-    <g transform="translate(${x}, ${y})">
-      <rect width="${w}" height="${h}" rx="14"
-        fill="url(#panel-bg)"
-        stroke="${border}" stroke-width="1.8" />
-
-      <text x="18" y="30"
-        font-family="Segoe UI, system-ui"
-        font-size="18" fill="${textTitle}">
-        ${icon} ${title}
-      </text>
-
-      <text x="22" y="57"
-        font-family="Segoe UI, system-ui"
-        font-size="22" fill="${textMain}" font-weight="700">
-        ${valText}
-      </text>
-
-      <text x="22" y="76"
-        font-family="Segoe UI, system-ui"
-        font-size="11" fill="${textSub}">
-        ${sub}
-      </text>
-    </g>
-    `;
-  }
 }
 
-// ---------- main ----------
+function trophyCard(
+  x,
+  y,
+  w,
+  h,
+  label,
+  rank,
+  title,
+  points,
+  metric,
+  bg,
+  cardBg,
+  cardBorder,
+  titleColor,
+  textColor,
+  subColor,
+  barBg,
+  barFill
+) {
+  const rankColor =
+    rank === "A" ? "#ffd700" : rank === "B" ? "#c0c0c0" : rank === "C" ? "#cd7f32" : "#9ca3af";
+
+  const pts = `${points || 0}pt`;
+
+  // progress width (0–1)
+  let norm = 0;
+  if (typeof metric === "number" && metric > 0) {
+    norm = Math.min(1, metric / 50); // arbitrary scaling
+  }
+
+  const barWidth = (w - 24) * norm;
+
+  return `
+  <g transform="translate(${x}, ${y})">
+    <rect x="0" y="0" width="${w}" height="${h}" rx="10"
+          fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+
+    <!-- category label -->
+    <text x="${w / 2}" y="24" text-anchor="middle"
+          font-family="Segoe UI, system-ui"
+          font-size="13" fill="${titleColor}" font-weight="600">
+      ${label}
+    </text>
+
+    <!-- trophy + rank circle -->
+    <circle cx="${w / 2}" cy="60" r="22" fill="${bg}" stroke="${rankColor}" stroke-width="2"/>
+    <text x="${w / 2}" y="56" text-anchor="middle"
+          font-family="Segoe UI, system-ui"
+          font-size="18" fill="${rankColor}" font-weight="700">
+      ${rank}
+    </text>
+    <text x="${w / 2}" y="77" text-anchor="middle"
+          font-family="Segoe UI Emoji, Segoe UI, system-ui"
+          font-size="18" fill="${rankColor}">
+      🏆
+    </text>
+
+    <!-- title & points -->
+    <text x="${w / 2}" y="104" text-anchor="middle"
+          font-family="Segoe UI, system-ui"
+          font-size="11" fill="${textColor}" font-weight="600">
+      ${title}
+    </text>
+
+    <text x="${w / 2}" y="120" text-anchor="middle"
+          font-family="Segoe UI, system-ui"
+          font-size="11" fill="${subColor}">
+      ${pts}
+    </text>
+
+    <!-- progress bar -->
+    <rect x="12" y="${h - 20}" width="${w - 24}" height="5" rx="2.5" fill="${barBg}" />
+    <rect x="12" y="${h - 20}" width="${barWidth}" height="5" rx="2.5" fill="${barFill}" />
+  </g>
+  `;
+}
+
+// ------------ main ------------
 async function main() {
   try {
     const stats = await getStats();
     const svg = buildSVG(stats);
     const outPath = path.join(__dirname, "trophy.svg");
     fs.writeFileSync(outPath, svg, "utf8");
-    console.log("🏆 trophy.svg generated (classic badge style).");
+    console.log("🏆 trophy.svg generated (Vercel-style row).");
   } catch (err) {
     console.error("❌ Error generating trophy:", err);
     process.exit(1);
