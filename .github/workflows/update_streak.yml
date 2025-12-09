@@ -20,7 +20,7 @@ jobs:
         run: mkdir -p assets
 
       - name: Move streak image
-        run: mv streak.png assets/streak.png
+        run: mv streak.png assets/streak.svg
 
       - name: Commit and push changes
         run: |
