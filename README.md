@@ -1,4 +1,4 @@
-<img width="36" height="51" alt="image" src="https://github.com/user-attachments/assets/5523e0c8-4339-4dbd-b0c9-dcedcc7fcef0" /><h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
+<h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
 <h3 align="center">A passionate cybersecurity enthusiast and reverse engineer from India</h3>
 
 <br/>
