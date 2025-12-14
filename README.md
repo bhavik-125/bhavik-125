@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
+<img width="36" height="51" alt="image" src="https://github.com/user-attachments/assets/5523e0c8-4339-4dbd-b0c9-dcedcc7fcef0" /><h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
 <h3 align="center">A passionate cybersecurity enthusiast and reverse engineer from India</h3>
 
 <br/>
@@ -19,7 +19,7 @@
 - 🔭 I’m currently working on **CypherChat – A Blockchain Based Decentralized Encrypted Messaging App**
 - 🌱 I’m currently learning **Baseband fuzzing (UnicornAFL), Solidity smart contracts, and advanced malware analysis**
 - 👯 I’m looking to collaborate on **Cybersecurity tools, Android reverse engineering, AI research, and open-source security projects**
-- 👨‍💻 All of my projects are available at **https://bhavik-protfolio-brown-nine.vercel.app/**
+- 👨‍💻 All of my projects are available at **https://bhavikthakkar.tech/**
 - 💬 Ask me about **Reverse Engineering • Cybersecurity • Blockchain • Android Internals • Python • Node.js • AI Models**
 - 📫 Reach me at **bhavikthakkar125@gmail.com**
 - ⚡ Fun fact: **I break things to understand how they work**
