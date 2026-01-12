@@ -49,7 +49,7 @@
 
     <text x="60" y="120" text-anchor="middle"
           fill="#b0b3c3" font-size="11" font-family="Segoe UI">
-      321pt
+      324pt
     </text>
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
@@ -89,12 +89,12 @@
 
     <text x="60" y="120" text-anchor="middle"
           fill="#b0b3c3" font-size="11" font-family="Segoe UI">
-      22pt
+      24pt
     </text>
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
           fill="#4b4f59" />
-    <rect x="12" y="150" width="21.12" height="5" rx="2.5"
+    <rect x="12" y="150" width="23.04" height="5" rx="2.5"
           fill="#e06c75" />
   </g>
 
@@ -134,7 +134,7 @@
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
           fill="#4b4f59" />
-    <rect x="12" y="150" width="3.7956047536073063" height="5" rx="2.5"
+    <rect x="12" y="150" width="3.8008554639878236" height="5" rx="2.5"
           fill="#e06c75" />
   </g>
 
