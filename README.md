@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Bhavik Umesh Thakkar</h1>
+<h1 align="center">I'm Bhavik Umesh Thakkar</h1>
 <h3 align="center">A passionate cybersecurity enthusiast and reverse engineer from India</h3>
 
 <br/>
