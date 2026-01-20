@@ -49,7 +49,7 @@
 
     <text x="60" y="120" text-anchor="middle"
           fill="#b0b3c3" font-size="11" font-family="Segoe UI">
-      327pt
+      328pt
     </text>
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
@@ -109,32 +109,32 @@
     </text>
 
     <circle cx="60" cy="60" r="22"
-            fill="#1f2228" stroke="#cd7f32" stroke-width="2" />
+            fill="#1f2228" stroke="#c0c0c0" stroke-width="2" />
 
     <text x="60" y="56" text-anchor="middle"
-          fill="#cd7f32" font-size="18" font-family="Segoe UI" font-weight="700">
-      C
+          fill="#c0c0c0" font-size="18" font-family="Segoe UI" font-weight="700">
+      B
     </text>
 
     <text x="60" y="77" text-anchor="middle"
-          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#cd7f32">
+          font-family="Segoe UI Emoji, Segoe UI" font-size="18" fill="#c0c0c0">
       🏆
     </text>
 
     <text x="60" y="104" text-anchor="middle"
           fill="#e5e7eb" font-size="11"
           font-family="Segoe UI" font-weight="600">
-      Junior Dev
+      Intermediate Dev
     </text>
 
     <text x="60" y="120" text-anchor="middle"
           fill="#b0b3c3" font-size="11" font-family="Segoe UI">
-      10pt
+      16pt
     </text>
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
           fill="#4b4f59" />
-    <rect x="12" y="150" width="3.8376823385692544" height="5" rx="2.5"
+    <rect x="12" y="150" width="3.8429247951902585" height="5" rx="2.5"
           fill="#e06c75" />
   </g>
 
