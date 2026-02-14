@@ -134,7 +134,7 @@
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
           fill="#4b4f59" />
-    <rect x="12" y="150" width="3.969236300639269" height="5" rx="2.5"
+    <rect x="12" y="150" width="3.9744717684627093" height="5" rx="2.5"
           fill="#e06c75" />
   </g>
 
@@ -209,12 +209,12 @@
 
     <text x="60" y="120" text-anchor="middle"
           fill="#b0b3c3" font-size="11" font-family="Segoe UI">
-      7pt
+      8pt
     </text>
 
     <rect x="12" y="150" width="96" height="5" rx="2.5"
           fill="#4b4f59" />
-    <rect x="12" y="150" width="13.440000000000001" height="5" rx="2.5"
+    <rect x="12" y="150" width="15.36" height="5" rx="2.5"
           fill="#e06c75" />
   </g>
 
