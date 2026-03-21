@@ -14,19 +14,19 @@
 
 ---
 
-### 🔥 About Me
+###  About Me
 
-- 🔭 I’m currently working on **CypherChat – A Blockchain Based Decentralized Encrypted Messaging App**
-- 🌱 I’m currently learning **Baseband fuzzing (UnicornAFL), Solidity smart contracts, and advanced malware analysis**
-- 👯 I’m looking to collaborate on **Cybersecurity tools, Android reverse engineering, AI research, and open-source security projects**
-- 👨‍💻 All of my projects are available at **https://bhavikthakkar.tech**
-- 💬 Ask me about **Reverse Engineering • Cybersecurity • Blockchain • Android Internals • Python • Node.js • AI Models**
-- 📫 Reach me at **bhavikthakkar125@gmail.com**
-- ⚡ Fun fact: **I break things to understand how they work**
+-  I’m currently working on **CypherChat – A Blockchain Based Decentralized Encrypted Messaging App**
+-  I’m currently learning **Baseband fuzzing (UnicornAFL), Solidity smart contracts, and advanced malware analysis**
+-  I’m looking to collaborate on **Cybersecurity tools, Android reverse engineering, AI research, and open-source security projects**
+-  All of my projects are available at **https://bhavikthakkar.tech**
+-  Ask me about **Reverse Engineering • Cybersecurity • Blockchain • Android Internals • Python • Node.js • AI Models**
+-  Reach me at **bhavikthakkar125@gmail.com**
+-  Fun fact: **I break things to understand how they work**
 
 ---
 
-### 📱 Connect with me
+###  Connect with me
 <p align="left">
 <a href="https://linkedin.com/in/bhavikthakkar125" target="_blank">
   <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40"/>
@@ -35,7 +35,7 @@
 
 ---
 
-### 🛠️ Languages & Tools
+###  Languages & Tools
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" height="40"/>
@@ -57,14 +57,14 @@
 ---
 
 
-### 🔥 Current GitHub Streak
+###  Current GitHub Streak
 <p align="center">
   <img src="./assets/streak.svg" width="495px" alt="GitHub Streak Card" />
 </p>
 
 
 ---
-### 📊 GitHub Summary
+###  GitHub Summary
 
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical" />
