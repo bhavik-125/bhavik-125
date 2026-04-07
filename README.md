@@ -59,7 +59,7 @@
 
 ###  Current GitHub Streak
 <p align="center">
-  <img src="./assets/streak.svg" width="495px" alt="GitHub Streak Card" />
+  <img src="https://streak-stats.demolab.com?user=bhavik-125&theme=radical&hide_border=true" />
 </p>
 
 
