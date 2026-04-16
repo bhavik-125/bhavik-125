@@ -1,4 +1,4 @@
-<h1 align="center">I'm Bhavik Umesh Thakkar</h1>
+<h1 align="center">I am Bhavik Umesh Thakkar</h1>
 <h3 align="center">A passionate cybersecurity enthusiast and reverse engineer from India</h3>
 
 <br/>
@@ -72,17 +72,17 @@
 ###  GitHub Summary
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bhavik-125&theme=radical&v=1" />
 </p>
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=bhavik-125&theme=radical" height="180"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bhavik-125&theme=radical" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=bhavik-125&theme=radical&v=1" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bhavik-125&theme=radical&utcOffset=5.5&v=1" height="180"/>
 </p>
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bhavik-125&theme=radical" height="180"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bhavik-125&theme=radical" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bhavik-125&theme=radical&v=1" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bhavik-125&theme=radical&v=1" height="180"/>
 </p>
 
 
